@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title_block %}
+<title>Mobile_List</title>
+{% endblock %}
+
+
+{% block body_block %}
+
+
+{% for message in messages %}
+<div class="alert alert-danger" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+{% endfor %}
+
+
+
+
+<nav class="navbar navbar-dark bg-primary">
+  <span class="navbar-brand mb-0 h1">Mobile-LIST</span>
+</nav>
+
+
+
+<table class="table">
+  <tbody>
+
+    <tr>
+      <th scope="col">Brand Name</th>
+      <th scope="col">Model</th>
+      <th scope="col">Color</th>
+      <th scope="col">JAN CODE</th>
+      <th scope="col">Image</th>
+      <th scope="col">EDIT</th>
+      <th scope="col">DELETE</th>
+
+    </tr>
+
+
+
+{% for mobile in mobile_list %}
+
+    <tr>
+      <th scope="row">{{ mobile.brand_name }}</th>
+      <td>{{ mobile.model }}</td>
+      <td>{{ mobile.color }}</td>
+      <td>{{ mobile.jan_code }}</td>
+      <td>{{ mobile.image }}</td>
+      <td><a href="#">EDIT</a></td>
+      <td><a href="#">DELETE</a></td>
+    <!--  <td><a href="{% url 'delete' mobile.id %}">DELETE</a></td> -->
+
+    </tr>
+
+
+{% endfor %}
+
+      </tbody>
+
+</table>
+
+{% endblock %}
